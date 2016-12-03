@@ -23,5 +23,17 @@ export default function() {
         res.json({ message: 'welcome to our api!' });
     });
 
+
+    router.route('/pass')
+    // serve certificate in file format specified
+    .post(function(req, res) {
+
+        var p = req.body.pass;
+        if(p == 'barsoom') {
+            res.json({ message: 'B3t you thought this had som3thing to do with the puzzl3, huh?' });
+        }
+
+    });
+
     return router;
 }

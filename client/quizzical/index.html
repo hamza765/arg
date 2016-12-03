@@ -3,11 +3,65 @@
 <head>
     <title>Otherwhere</title>
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+    body {
+        margin: 1vh;
+        font-size: 20px;
+        color: white;
+        background-color: black;
+    }
+
+    #a {
+    	position: fixed;
+    	bottom: 1vh;
+    	right: 0;
+    	left: 0;
+    }
+    </style>
 </head>
 
 <body>
-    Good job.<br>
-    May we meet again.
+    Good job.
+    <br> And again we meet. Time for a little twist.
+    <br>
+    <br>
+    <h1 id="a" class="text-center">Voeniculum fulgare. Vllicium ierum.<br>U2FsdGVkX183ddRgjv7ACOA7ZSEBrgMtFloFjntYI/obTHz3Zoy9WA==</h1>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h2 class="text-center">What's the password?</h2>
+                <input type="text" id="pass" class="form-control">
+                <br>
+                <div class="text-center">
+                    <a id="passSub" class="btn btn-primary">Submit</a>
+                </div>
+                <h2 id="mess" class="text-center" style="display:none"></h2>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+$('#passSub').on('click', function() {
+    var pass = $('#pass').val();
+    $.ajax({
+        type: 'POST',
+        url: '/api/pass',
+        data: {
+            pass
+        },
+        dataType: 'JSON',
+        timeout: 4500,
+        success: callback
+    });
+
+    function callback(data){
+    	$('#mess').html(data.message).show();
+    }
+})
+</script>
 
 </html>

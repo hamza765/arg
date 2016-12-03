@@ -15,30 +15,6 @@ app.use(morgan('dev')); // log requests to the console
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/certificate_lookup', function(req, res, next) {
-
-    var t = req.path;
-    console.log(req.originalUrl + "-----------");
-    if (req.originalUrl.match(/lookup\/./i) != null) {
-        t = t.slice(1, t.length);
-        t = "/?url=" + t;
-        res.redirect(301, t);
-    } else {
-        res.redirect(301, '/');
-    }
-    next();
-});
-
-// app.use(function(req, res, next) {
-
-//     var t = req.path + "-------------";
-//     // if (!(t.match(/\/certificate_lookup/)) || !(t.match(/\/decoder/)) || !(t.match(/\//))) {
-//     // 	res.redirect(301, '/404');
-//     // }
-//     console.log(t);
-//     next();
-// });
-
 app.use(express.static('./client'));
 
 // internal middleware

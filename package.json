@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git://github.com/SSLcom/ssl-scanner.git"
   },
-  "author": "Hussain Mucklai <hmucklai@ssl.com>",
+  "author": "Hamza Khan",
   "license": "Proprietary",
   "dependencies": {
     "babel": "^5.8.21",
