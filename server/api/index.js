@@ -35,5 +35,16 @@ export default function() {
 
     });
 
+    router.route('/second')
+    // serve certificate in file format specified
+    .post(function(req, res) {
+
+        var p = req.body.pass;
+        if(p == 'isstiautng') {
+            res.json({ message: 'S/D - 4 - black tie, tan coat' });
+        }
+
+    });
+
     return router;
 }
