@@ -1,0 +1,3 @@
+# LazyArg
+
+- Cryptographics Puzzles
